@@ -144,8 +144,14 @@ function Board({ squares, onClick, gameOver }) {
  */
 function Square({ value, onClick, disabled }) {
   let display = '';
-  if (value === 1) display = 'X';
-  else if (value === 2) display = 'O';
+  let markerColor = "#bdbdbd";
+  if (value === 1) {
+    display = 'X';
+    markerColor = "#FF0000"; // Red for X
+  } else if (value === 2) {
+    display = 'O';
+    markerColor = "#000000"; // Black for O
+  }
   return (
     <button
       className="ttt-square"
@@ -155,7 +161,7 @@ function Square({ value, onClick, disabled }) {
         width: 64,
         height: 64,
         background: "#fafafa",
-        color: value === 1 ? "#4CAF50" : value === 2 ? "#FFC107" : "#bdbdbd",
+        color: markerColor,
         fontWeight: 700,
         fontSize: 32,
         border: `2.5px solid #ececec`,
